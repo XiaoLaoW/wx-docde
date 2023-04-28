@@ -1,0 +1,81 @@
+<!--index.wxml-->
+<view class="page">
+  <button bindtap="onHistoryClick" style="block">领用记录</button>
+
+  <view style="margin-top:10px;margin-left:5px;margin-right:5px" class="button-sp-area">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <view class="page__desc">当前登录：{{username}}</view>
+        </view>
+      </view>
+      <view>
+        <view class="placeholder">
+        <view wx:if="{{is_login}}">
+        <button class="weui-btn mini-btn" type="primary" bindtap='logout' size="mini">退出</button>
+        </view>
+          <view wx:else>
+          <button class="weui-btn mini-btn" type="primary" bindtap='login' size="mini">登录</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+  <view style="margin-top:15px;" class="weui-cells">
+    <view class="weui-cell ">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput='getSnInput' value="{{sn}}" placeholder="请输入打印机编号" />
+      </view>
+      <view class="placeholder">
+        <button type="primary" plain="true" bindtap="scanSn" size="mini">扫码</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell ">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput='getCompanyNameInput' value="{{compan_name}}" placeholder="请输入公司名" />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell ">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput='getDesc1Input' value="{{desc1}}" placeholder="备注1" />
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell ">
+      <view class="weui-cell__bd">
+        <input class="weui-input" bindinput='getDesc2Input' value="{{desc2}}" placeholder="备注2" />
+      </view>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <picker bindchange="wayChange" value="{{way_index}}" range="{{way}}">
+        <view class="page__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view style="font-size: 18px" class="weui-cell__bd">用途:</view>
+              <view class="weui-cell__ft">{{way[way_index]}}</view>
+            </view>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-btn-area">
+      <button type="primary" plain="true" bindtap="addPrinter">领用打印机</button>
+    </view>
+  </view>
+</view>

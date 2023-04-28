@@ -1,0 +1,2 @@
+/* pages/index/record/index.wxss */
+@import '/style/weui.wxss';

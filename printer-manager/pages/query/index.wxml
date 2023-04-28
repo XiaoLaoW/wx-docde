@@ -1,0 +1,30 @@
+<view class="QueryHistory">
+  <text>查询历史</text>
+</view>
+<view class="Input" >
+      <input class="inp" bindinput="inputValue" type="text" placeholder="请输入打印机编号或公司名"  placeholder-class="inp-pla" confirm-type="search" />
+</view>
+<view class="btn">
+      <button  type="primary"  bindtap="Query">查询</button>
+</view>
+<view class="result">
+      <view>
+          <text>查询结果：</text>
+        </view>
+      <view wx:if="{{Length > 0}}">
+          <block wx:for="{{companyArray}}" wx:key="index" wx:for-item="item">
+              <view  class="content">
+                <view class="company">
+                      公司名:{{item.company_name}}
+                  </view>
+                <view class="print">
+                  <text>打印机编号:{{item.sn}}</text>
+                  </view>
+                </view>
+          </block>   
+        </view>
+      <view wx:elseif="{{Length === 0}}">
+                <text>无绑定信息</text>
+            </view>
+
+</view>

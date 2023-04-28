@@ -1,0 +1,77 @@
+<!--index.wxml-->
+<view class="page">
+
+  <view class="weui-cells__title">选择</view>
+
+  <view class="page__bd">
+    <view class="weui-cells weui-cells_after-title">
+      <picker bindchange="nameChange" value="{{name_index}}" range="{{name}}">
+        <view class="page__bd">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+              <view class="weui-cell__bd">办事处:</view>
+              <view class="weui-cell__ft">{{name[name_index]}}</view>
+            </view>
+          </view>
+        </view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-btn-area">
+      <button type="primary" plain="true" bindtap="record">确定</button>
+    </view>
+  </view>
+
+  <view class="weui-cells__title">领用记录</view>
+
+  <view class="button-sp-area">
+    <view class="weui-flex">
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <button class="weui-btn mini-btn" type="primary" bindtap='previous' size="mini">上一页</button>
+        </view>
+      </view>
+      <view class="weui-flex__item">
+        <view class="placeholder">
+          <view style="left:10px;"> 第{{pageNum}}/{{total_page}}页</view>
+        </view>
+      </view>
+      <view>
+        <view class="placeholder">
+          <button class="weui-btn mini-btn" type="primary" bindtap='next' size="mini">下一页</button>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:for="{{record_list}}" wx:key="{{index}}" class="item">
+    <view class="page__bd">
+      <view class="weui-form-preview">
+        <view class="weui-form-preview__bd">
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">编号</view>
+            <view class="weui-form-preview__value">{{item.sn}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">领用时间</view>
+            <view class="weui-form-preview__value">{{item.ctime}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">领用人</view>
+            <view class="weui-form-preview__value">{{item.username}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">公司名</view>
+            <view class="weui-form-preview__value">{{item.companyName}}</view>
+          </view>
+          <view class="weui-form-preview__item">
+            <view class="weui-form-preview__label">用途</view>
+            <view class="weui-form-preview__value">{{item.remark}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

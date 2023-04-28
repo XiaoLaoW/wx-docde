@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/query/index",
+    "pages/index/record/index",
+    "pages/login/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "打印机领用管理",
+    "navigationBarTextStyle": "black"
+  },
+
+  "tabBar": {
+    "borderStyle": "black",
+    "selectedColor": "#4A6141",
+    "color": "#333",
+    "backgroundColor": "#fff",
+    "position": "top",
+    "list": [
+      {
+        "pagePath":"pages/index/index",
+        "text": "领用"
+       
+      },
+      {
+        "pagePath":"pages/query/index",
+        "text": "查询"
+       
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
