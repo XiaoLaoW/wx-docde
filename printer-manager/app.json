@@ -2,8 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/query/index",
+    "pages/query/History/index",
     "pages/index/record/index",
     "pages/login/index",
+
     "pages/logs/logs"
   ],
   "window": {

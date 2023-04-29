@@ -1,6 +1,66 @@
 .QueryHistory{
     display: flex;
-    align-items: center;
-    border-top: 1px solid #000;
+    align-items: center;
+    height: 120rpx;
+    width: 100%;
+    text-align: center;
+    margin-top: -10rpx;
+    padding-top: 0;
+  
 }
-   
+.QueryHistory .btn{
+    width: 100%;
+}
+
+.Input{
+    display: flex;
+    border-bottom: 1px solid rgba(182, 164, 164, 0.945);
+    align-items: center;
+    margin:0 10rpx;
+}
+.Input .btn{
+    display: flex;
+    width: 170rpx;
+    font-size: 17px;
+    padding: 0 1.34em;
+    background-color: #1AAD19;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.inp{
+    width: 100%;
+}
+.inp-pla{
+    text-align: center;
+    color: rgb(223, 209, 209);
+}
+
+
+.btn{
+    margin: 5rpx 0;
+}
+.result{
+    margin-top: 10rpx;
+}
+.result .content:first-child{
+    border-top: 1px solid rgba(182, 164, 164, 0.945);
+}
+.result .content{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(182, 164, 164, 0.945);
+    margin:0 10rpx;
+    padding: 3rpx 0;
+    color: rgb(7, 136, 56);
+}
+.result .tips{
+    font-size: larger;
+    color: rgb(7, 136, 56);
+    margin-left: 10rpx;
+}
+
+
+
+
+

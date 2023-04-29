@@ -3,5 +3,22 @@
     "projectname": "printer-manager",
     "setting": {
         "compileHotReLoad": true
+    },
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "query",
+                    "pathName": "pages/query/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null,
+                    "partialCompile": {
+                        "enabled": true,
+                        "pages": []
+                    }
+                }
+            ]
+        }
     }
 }

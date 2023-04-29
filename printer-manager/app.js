@@ -86,7 +86,7 @@ App({
     var user = wx.getStorageSync('user')
     if (user == '') {
       //跳转到登录页面
-      wx.navigateTo({
+      wx.reLaunch({
         url: '/pages/login/index',
       })
       return false

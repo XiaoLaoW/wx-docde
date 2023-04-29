@@ -1,0 +1,9 @@
+.history{
+    display: flex;
+    flex-direction: column;
+}
+.history text{
+    width: 100%;
+    text-align: center;
+
+}
