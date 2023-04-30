@@ -3,7 +3,11 @@
 </view>
 <view class="Input" >
     <input class="inp" value="{{sn}}" bindinput="inputValue" type="text" placeholder="请输入打印机编号或公司名"  placeholder-class="inp-pla" />
-    <button class="btn" type="primary" plain="true" bindtap="scanSn" >扫码</button>
+    <button class="btn" type="primary" plain="true" bindtap="scanSn" size="mini" >扫码</button>
+
+    <view wx:if="{{delete}}">
+        <icon class="icon-box-img" type="clear" size="15" bindtap="clearInputValue"></icon>
+    </view>
 </view>
 <view class="btn">
     <button type="primary"  bindtap="Query">查询</button>
@@ -16,15 +20,15 @@
       <block wx:for="{{companyArray}}" wx:key="index" wx:for-item="item">
         <view  class="content">
         <view class="company">
-            公司名:{{item.company_name}}
+            {{index + 1}}.公司名:{{item.company_name}}
         </view>
         <view class="print">
-        <text>打印机编号:{{item.sn}}</text>
+        <text>  打印机编号:{{item.sn}}</text>
         </view>
         </view>
     </block>   
     </view>
-    <view wx:else if="{{Length === 0 }}">
+    <view wx:else if="{{Length === 0 }}" class="message">
             <text>无绑定信息</text>
         </view>
 

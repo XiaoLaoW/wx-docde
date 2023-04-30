@@ -13,20 +13,23 @@
 }
 
 .Input{
+    position:relative;
     display: flex;
+    flex-direction: row;
     border-bottom: 1px solid rgba(182, 164, 164, 0.945);
     align-items: center;
-    margin:0 10rpx;
+    margin: 10rpx;
+    height: 100rpx;
 }
 .Input .btn{
-    display: flex;
-    width: 170rpx;
-    font-size: 17px;
-    padding: 0 1.34em;
+    position:relative;
+    height: 50rpx;
+    width: 100rpx;
+    font-size: 10px;
     background-color: #1AAD19;
     text-align: center;
     align-items: center;
-    justify-content: center;
+    margin-right: 50rpx;
 }
 .inp{
     width: 100%;
@@ -54,10 +57,22 @@
     padding: 3rpx 0;
     color: rgb(7, 136, 56);
 }
+.result .content .indexText{
+    float: left;
+}
 .result .tips{
     font-size: larger;
     color: rgb(7, 136, 56);
     margin-left: 10rpx;
+}
+.message{
+    margin-left: 10rpx;
+}
+.result .content .print{
+    padding-left: 20rpx;
+}
+.icon-box-img{
+    margin-right: 10rpx;
 }
 
 

@@ -6,7 +6,6 @@ Page({
      */
     data: {
         historyArray:[]
-
     },
 
     /**
@@ -14,13 +13,10 @@ Page({
      */
     onLoad(options) {
         var newArray = wx.getStorageSync('history')
-        var historyArray = this.data.historyArray
-        if(historyArray.length < 20){
-           historyArray.push(newArray)
+        this.setData({
+            historyArray:newArray
+        })
         console.log(this.data.historyArray);
-        } else{
-           console.log(this.data.historyArray);
-        }
     },
 
     /**

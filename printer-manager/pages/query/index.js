@@ -1,3 +1,4 @@
+
 const app =getApp();
 Page({
 
@@ -12,6 +13,11 @@ Page({
         count:0,
         timer:null,
         sn:'',
+        historyArray:[],
+        iconType: [
+            'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
+          ],
+        delete:false
     },
     //扫码识别
     scanSn:function(){
@@ -19,7 +25,6 @@ Page({
     wx.scanCode({
       success: function (res) {
         var sn = res.result
-        console.log(sn);
         that.setData({
             inputValue: sn,
             sn:sn
@@ -31,12 +36,19 @@ Page({
     
 
     inputValue:function(e){
+        var that = this ;
+            that.setData({
+                inputValue:e.detail.value,
+                delete:true,
+            })
+    },
+    clearInputValue:function(){
         this.setData({
-            inputValue:e.detail.value
+            delete:false,
+            sn:''
         })
     },
 Query:function(){
-
 
     var userStorage = wx.getStorageSync('user')
     var Token = userStorage.token
@@ -45,7 +57,7 @@ Query:function(){
     })
     var str = this.data.inputValue;
     var count = this.data.count;
-    if(str.length > 1 && count < 11){
+    if(str.length > 1 && count < 11 && userStorage){
         wx.request({
             url: app.host + app.url,
             method: 'POST',
@@ -59,28 +71,50 @@ Query:function(){
               token: app.api_token
             },
             success:  (res)=> {
-                console.log(res.data.result,res.data.result.length);
-                wx.setStorageSync('history',res.data.result )
+                var array = res.data.result;
+                var hisArray = [];
+                var hArray = this.data.historyArray;
+                for(let i = 0 ; i < array.length ; i++ ){
+                    var n = array[i];
+                    hArray.push(n)
+                }
+                this.setData({
+                    hArray:hisArray
+                })
+                //限制history数据不超过20条
+                if(hArray.length >20 ){
+                    var that = this
+                    var oldArray = that.data.historyArray;
+                    var num = oldArray.length - 20;
+                    var newArray = oldArray.splice(num);
+                    that.setData({
+                        historyArray:newArray
+                    })
+                    console.log('数组length超过20');
+                }
+                wx.setStorageSync('history', this.data.historyArray)
                   this.setData({
                     Length:res.data.result.length,
                     companyArray:res.data.result,
                     count:this.data.count + 1,
-                    
                   })
                 }
      })
-    
   } else if(count > 10){
       //限制1分钟内只能搜索10次
       wx.showModal({
         title: '稍等一下再搜索',
       })
-  } else{
+  }  else if(!userStorage){
+    wx.showModal({
+        title: '请登录账号',
+      })
+  }
+  else{
     wx.showModal({
         title: '请检查搜索条件',
       })
   }
-    console.log(this.data.count);
 },
 toHistory:function(){
     wx.navigateTo({
@@ -101,6 +135,5 @@ onShow:function(){
 },
 onHide:function(){
     clearInterval(this.data.timer)
-    console.log('yincang');
 }
 })

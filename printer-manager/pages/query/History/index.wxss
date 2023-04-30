@@ -5,5 +5,16 @@
 .history text{
     width: 100%;
     text-align: center;
+    color: crimson;
+}
+.content{
+    float: left;
+    margin:0 10rpx;
+}
 
+.index{
+    float: left;
+}
+.line{
+    border-bottom: 1px solid rgba(182, 164, 164, 0.945);
 }
