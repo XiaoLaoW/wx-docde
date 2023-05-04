@@ -10,7 +10,6 @@ Page({
         Length:1,
         QueryToken:1,
         inputValue:"",
-        count:0,
         timer:null,
         sn:'',
         historyArray:[],
@@ -63,7 +62,7 @@ Query:function(){
     })
     var str = this.data.inputValue;
     var count = this.data.count;
-    if(str.length > 1 && count < 11 && userStorage){
+    if(str.length > 1 && userStorage){
         wx.request({
             url: app.host + app.url,
             method: 'POST',
@@ -106,14 +105,14 @@ Query:function(){
                   })
                 }
      })
-  } else if(count > 10){
-      //限制1分钟内只能搜索10次
-      wx.showModal({
-        title: '稍等一下再搜索',
-      })
   }  else if(!userStorage){
     wx.showModal({
         title: '请登录账号',
+        success(res){
+            wx.navigateTo({
+                url: '../login/index',
+              })
+        }
       })
   }
   else{
@@ -129,17 +128,9 @@ toHistory:function(){
 },
 onShow:function(){
     //页面显示时每1分钟重置一次count
-    var timer = setInterval((e) => {
-        this.setData({
-            count:0
-        })
-        console.log('已重置');
-    }, 60000);
-    this.setData({
-        timer:timer
-    })
+   
 },
 onHide:function(){
-    clearInterval(this.data.timer)
+   
 }
 })
