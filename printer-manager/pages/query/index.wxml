@@ -3,7 +3,7 @@
 </view>
 <view class="Input" >
     <input class="inp" value="{{sn}}" bindinput="inputValue" type="text" placeholder="请输入打印机编号或公司名"  placeholder-class="inp-pla" />
-    <button class="btn" type="primary" plain="true" bindtap="scanSn" size="mini" >扫码</button>
+    <button class="btn" type="primary" plain="true" bindtap="scanSn"  >扫码</button>
 
     <view wx:if="{{delete}}">
         <icon class="icon-box-img" type="clear" size="15" bindtap="clearInputValue"></icon>

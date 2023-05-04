@@ -24,7 +24,7 @@
 .Input .btn{
     position:relative;
     height: 50rpx;
-    width: 100rpx;
+    width: 110rpx;
     font-size: 10px;
     background-color: #1AAD19;
     text-align: center;

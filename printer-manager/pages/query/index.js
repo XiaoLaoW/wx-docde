@@ -41,6 +41,12 @@ Page({
                 inputValue:e.detail.value,
                 delete:true,
             })
+        var currentValue = e.detail.value;
+        if (!currentValue) {
+            that.setData({
+                delete:false
+            })
+        }
     },
     clearInputValue:function(){
         this.setData({
