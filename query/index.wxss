@@ -1,0 +1,81 @@
+.QueryHistory{
+    display: flex;
+    align-items: center;
+    height: 120rpx;
+    width: 100%;
+    text-align: center;
+    margin-top: -10rpx;
+    padding-top: 0;
+  
+}
+.QueryHistory .btn{
+    width: 100%;
+}
+
+.Input{
+    position:relative;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid rgba(182, 164, 164, 0.945);
+    align-items: center;
+    margin: 10rpx;
+    height: 100rpx;
+}
+.Input .btn{
+    position:relative;
+    height: 50rpx;
+    width: 110rpx;
+    font-size: 10px;
+    background-color: #1AAD19;
+    text-align: center;
+    align-items: center;
+    margin-right: 50rpx;
+}
+.inp{
+    width: 100%;
+}
+.inp-pla{
+    text-align: center;
+    color: rgb(223, 209, 209);
+}
+
+
+.btn{
+    margin: 5rpx 0;
+}
+.result{
+    margin-top: 10rpx;
+}
+.result .content:first-child{
+    border-top: 1px solid rgba(182, 164, 164, 0.945);
+}
+.result .content{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(182, 164, 164, 0.945);
+    margin:0 10rpx;
+    padding: 3rpx 0;
+    color: rgb(7, 136, 56);
+}
+.result .content .indexText{
+    float: left;
+}
+.result .tips{
+    font-size: larger;
+    color: rgb(7, 136, 56);
+    margin-left: 10rpx;
+}
+.message{
+    margin-left: 10rpx;
+}
+.result .content .print{
+    padding-left: 20rpx;
+}
+.icon-box-img{
+    margin-right: 10rpx;
+}
+
+
+
+
+

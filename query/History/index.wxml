@@ -1,0 +1,16 @@
+<view class="history">
+    <text>仅展示近20条查询记录</text>
+    <black wx:for="{{historyArray}}" wx:key="index" wx:for-item="item">
+       <view class="line">
+        <view class="index">{{index + 1}}.</view>
+         <view class="content">
+             <view>
+            公司名:{{item.company_name}}
+            </view> 
+         <view>
+            编号:{{item.sn}} 
+         </view>
+       </view>
+       </view>
+    </black>
+</view>
